@@ -1,5 +1,4 @@
 const Koa = require('koa');
-const bodyparser = require('koa-bodyparser');
 const router = require('./middlewares/routes/router');
 require('dotenv-defaults').config();
 const errorHandler = require('./middlewares/errorHandler');
@@ -9,7 +8,6 @@ const db = require('./db/models');
 const proxy = require('koa-better-http-proxy');
 
 const app = new Koa();
-app.use(bodyparser());
 app.use(loggerMiddleware);
 app.use(errorHandler());
 app.use(router.allowedMethods());

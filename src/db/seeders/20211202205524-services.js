@@ -1,4 +1,3 @@
-'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -34,7 +33,7 @@ module.exports = {
     ]);
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface) => {
     await queryInterface.bulkDelete('Services', null, {});
   },
 };

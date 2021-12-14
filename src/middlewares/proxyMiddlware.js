@@ -8,14 +8,15 @@ const proxyMiddlware = proxy('http', {
   async proxyReqOptDecorator(proxyReqOpts, ctx) {
     const path = ctx.path.split('/')[1];
     const modProxyReqOpts = proxyReqOpts;
-    const settigs = await db.Services.findOne({
+    const settings = await db.Services.findOne({
       where: {
         path
       }
     });
     modProxyReqOpts.headers = ctx.headers;
-    modProxyReqOpts.port = settigs.port;
-    modProxyReqOpts.host = settigs.host;
+    modProxyReqOpts.port = settings.port;
+    modProxyReqOpts.host = settings.host;
+
     return proxyReqOpts;
   },
   parseReqBody: false

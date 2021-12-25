@@ -1,0 +1,32 @@
+{
+	"info": {
+		"_postman_id": "6212d04f-5b86-403f-a2c4-046d94ae9c9a",
+		"name": "gateway-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3008/gateway/health",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"gateway",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

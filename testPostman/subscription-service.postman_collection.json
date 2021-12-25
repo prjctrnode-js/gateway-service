@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "ab90a1ff-e879-4037-a543-9ecac6848136",
+		"name": "subscription-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3008/subscriptions/health",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"subscriptions",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create subscription",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"userId\": 224,\n        \"subscriptionId\":2555\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3008/subscriptions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user subscriptions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3008/subscriptions?userId=1&limit=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"subscriptions"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user subscription",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3008/subscriptions?userId=224&id=6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"subscriptions"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "224"
+						},
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

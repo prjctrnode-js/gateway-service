@@ -32,10 +32,16 @@
 			"name": "create-history",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJlbWFpbCI6InNlcmFsQGkudWEiLCJuYW1lIjoiYWxleCJ9LCJpYXQiOjE2NDEyMDU5NjIsImV4cCI6MTY0MTI5MjM2Mn0.0CRBDtikLg8v1C_sxSmxpJAi26wU-TKnM43a-Og-gic",
+						"type": "string"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"userId\": 1,\n    \"videoId\": 72222\n}",
+					"raw": "{\n    \"userId\": 166,\n    \"videoId\": 72222\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -63,9 +69,15 @@
 			"name": "get-history",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJlbWFpbCI6InNlcmFsQGkudWEiLCJuYW1lIjoiYWxleCJ9LCJpYXQiOjE2NDEyMDU5NjIsImV4cCI6MTY0MTI5MjM2Mn0.0CRBDtikLg8v1C_sxSmxpJAi26wU-TKnM43a-Og-gic",
+						"type": "string"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:3008/history?userId=1&limit=1",
+					"raw": "http://127.0.0.1:3008/history?userId=2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -80,11 +92,7 @@
 					"query": [
 						{
 							"key": "userId",
-							"value": "1"
-						},
-						{
-							"key": "limit",
-							"value": "1"
+							"value": "2"
 						}
 					]
 				}

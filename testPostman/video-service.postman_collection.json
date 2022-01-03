@@ -17,18 +17,57 @@
 		{
 			"name": "create video",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": null
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJlbWFpbCI6InNlcmFsQGkudWEiLCJuYW1lIjoiYWxleCJ9LCJpYXQiOjE2NDEyMDU5NjIsImV4cCI6MTY0MTI5MjM2Mn0.0CRBDtikLg8v1C_sxSmxpJAi26wU-TKnM43a-Og-gic",
+						"type": "string"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/Users/andrejnemodruk/Downloads/1250904853_simon_muha.avi"
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3008/videos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"videos"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "delete video",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://127.0.0.1:3008/videos/6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"videos",
+						"6"
+					]
+				}
 			},
 			"response": []
 		},

@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       port: DataTypes.INTEGER,
       host: DataTypes.STRING,
-      path: DataTypes.STRING
+      path: DataTypes.STRING,
+      token: DataTypes.STRING,
     },
     {
       sequelize,

@@ -7,7 +7,6 @@ const proxyMiddlware = proxy('http', {
     return ctx.url !== '/gateway/health';
   },
   async proxyReqOptDecorator(proxyReqOpts, ctx) {
-    console.log(await checkToken(ctx.headers['g-token']))
     const path = ctx.path.split('/')[1];
     const modProxyReqOpts = proxyReqOpts;
     const settings = await db.Services.findOne({

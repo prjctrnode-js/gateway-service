@@ -6,7 +6,7 @@ module.exports = {
       Sequelize.STRING
     ),
 
-  down: async (queryInterface, Sequelize) => queryInterface.removeColumn(
+  down: async (queryInterface) => queryInterface.removeColumn(
       'Todo',
       'completed'
     )

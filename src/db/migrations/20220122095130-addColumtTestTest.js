@@ -7,8 +7,8 @@ module.exports = {
     ),
 
   down: async (queryInterface) => queryInterface.removeColumn(
-      'Todo',
-      'completed'
+      'Services',
+      'TestTest'
     )
   
 };

@@ -1,5 +1,4 @@
 const proxy = require('koa-better-http-proxy');
-const db = require('../db/models');
 const checkToken = require('../helpers/checkToken');
 
 const proxyMiddlware = proxy('http', {
@@ -7,19 +6,16 @@ const proxyMiddlware = proxy('http', {
     return ctx.url !== '/gateway/health';
   },
   async proxyReqOptDecorator(proxyReqOpts, ctx) {
-    const path = ctx.path.split('/')[1];
+    const { pathSettings } = ctx;
     const modProxyReqOpts = proxyReqOpts;
-    const settings = await db.Services.findOne({
-      where: {
-        path,
-      },
-    });
     modProxyReqOpts.headers = ctx.headers;
-    modProxyReqOpts.headers['g-token'] = await checkToken(ctx.headers['g-token'])
-      ? settings.token
+    modProxyReqOpts.headers['g-token'] = (await checkToken(
+      ctx.headers['g-token']
+    ))
+      ? pathSettings.token
       : null;
-    modProxyReqOpts.port = settings.port;
-    modProxyReqOpts.host = settings.host;
+    modProxyReqOpts.port = pathSettings.port;
+    modProxyReqOpts.host = pathSettings.host;
 
     return proxyReqOpts;
   },

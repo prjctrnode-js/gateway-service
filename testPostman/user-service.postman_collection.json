@@ -35,7 +35,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"name\": \"alex\",\n        \"email\": \"alex@i.ua\"\n    }",
+					"raw": "{\n        \"name\": \"alex\",\n        \"email\": \"seriial@i.ua\",\n        \"password\": \"secret\"\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,9 +62,45 @@
 		{
 			"name": "get user info",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJzZXJpaWFsQGkudWEiLCJuYW1lIjoiYWxleCIsImlhdCI6MTY0MDYwMjAwNywiZXhwIjoxNjQwNjg4NDA3fQ.VktgK-9X_1Y9ffmn5A9pEN9tcI-M01Dfg0GZtkzIYxg\"",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": [],
-				"url": null
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJlbWFpbCI6InNlcmlpYWxAaS51YSIsIm5hbWUiOiJhbGV4In0sImlhdCI6MTY0MDYxMzkzOCwiZXhwIjoxNjQwNzAwMzM4fQ.WY2aPUkJbQlPDcxkpvKBBzLLj5D5hFLoE4oeFQX0HN8",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJlbWFpbCI6InNlcmlpYWxAaS51YSIsIm5hbWUiOiJhbGV4In0sImlhdCI6MTY0MDYxMzkzOCwiZXhwIjoxNjQwNzAwMzM4fQ.WY2aPUkJbQlPDcxkpvKBBzLLj5D5hFLoE4oeFQX0HN8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3008/users/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"users",
+						"2"
+					]
+				}
 			},
 			"response": []
 		},
@@ -72,8 +108,36 @@
 			"name": "get user history",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": null
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJlbWFpbCI6InNlcmlpYWxAaS51YSIsIm5hbWUiOiJhbGV4In0sImlhdCI6MTY0MDYxMzkzOCwiZXhwIjoxNjQwNzAwMzM4fQ.WY2aPUkJbQlPDcxkpvKBBzLLj5D5hFLoE4oeFQX0HN8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3008/users/2/history",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"users",
+						"2",
+						"history"
+					],
+					"query": [
+						{
+							"key": "x-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJlbWFpbCI6InNlcmlpYWxAaS51YSIsIm5hbWUiOiJhbGV4In0sImlhdCI6MTY0MDYxMzkzOCwiZXhwIjoxNjQwNzAwMzM4fQ.WY2aPUkJbQlPDcxkpvKBBzLLj5D5hFLoE4oeFQX0HN8",
+							"disabled": true
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -90,9 +154,15 @@
 			"name": "get user videos",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJlbWFpbCI6InNlcmlpYWxAaS51YSIsIm5hbWUiOiJhbGV4In0sImlhdCI6MTY0MDYxMzkzOCwiZXhwIjoxNjQwNzAwMzM4fQ.WY2aPUkJbQlPDcxkpvKBBzLLj5D5hFLoE4oeFQX0HN8",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:3008/users/videos?id=2",
+					"raw": "http://127.0.0.1:3008/users/2/videos",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -103,15 +173,51 @@
 					"port": "3008",
 					"path": [
 						"users",
+						"2",
 						"videos"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "2"
-						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"alex\",\n        \"email\": \"seral@i.ua\",\n        \"password\": \"secret\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3008/users/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3008",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
 			},
 			"response": []
 		}

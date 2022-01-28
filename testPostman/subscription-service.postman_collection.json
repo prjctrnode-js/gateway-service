@@ -35,7 +35,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"userId\": 224,\n        \"subscriptionId\":2555\n    }",
+					"raw": "{\n        \"userId\": 1,\n        \"subscriptionId\":2233\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -63,9 +63,15 @@
 			"name": "get user subscriptions",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJlbWFpbCI6InNlcmlpYWxAaS51YSIsIm5hbWUiOiJhbGV4In0sImlhdCI6MTY0MDYxMzkzOCwiZXhwIjoxNjQwNzAwMzM4fQ.WY2aPUkJbQlPDcxkpvKBBzLLj5D5hFLoE4oeFQX0H",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:3008/subscriptions?userId=1&limit=1",
+					"raw": "http://127.0.0.1:3008/subscriptions?userId=2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -80,11 +86,7 @@
 					"query": [
 						{
 							"key": "userId",
-							"value": "1"
-						},
-						{
-							"key": "limit",
-							"value": "1"
+							"value": "2"
 						}
 					]
 				}
@@ -93,11 +95,20 @@
 		},
 		{
 			"name": "delete user subscription",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJlbWFpbCI6InNlcmFsQGkudWEiLCJuYW1lIjoiYWxleCJ9LCJpYXQiOjE2NDA2MjYyODksImV4cCI6MTY0MDcxMjY4OX0.sodXZPYPFG8BrlRY-Rl53NlAWebV1yfumA7UWBtsuNc",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:3008/subscriptions?userId=224&id=6",
+					"raw": "http://127.0.0.1:3008/subscriptions/14",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -107,17 +118,8 @@
 					],
 					"port": "3008",
 					"path": [
-						"subscriptions"
-					],
-					"query": [
-						{
-							"key": "userId",
-							"value": "224"
-						},
-						{
-							"key": "id",
-							"value": "6"
-						}
+						"subscriptions",
+						"14"
 					]
 				}
 			},

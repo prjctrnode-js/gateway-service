@@ -1,5 +1,6 @@
 const proxy = require('koa-better-http-proxy');
 const db = require('../db/models');
+const checkToken = require('../helpers/checkToken');
 
 const proxyMiddlware = proxy('http', {
   filter(ctx) {
@@ -10,16 +11,19 @@ const proxyMiddlware = proxy('http', {
     const modProxyReqOpts = proxyReqOpts;
     const settings = await db.Services.findOne({
       where: {
-        path
-      }
+        path,
+      },
     });
     modProxyReqOpts.headers = ctx.headers;
+    modProxyReqOpts.headers['g-token'] = await checkToken(ctx.headers['g-token'])
+      ? settings.token
+      : null;
     modProxyReqOpts.port = settings.port;
     modProxyReqOpts.host = settings.host;
 
     return proxyReqOpts;
   },
-  parseReqBody: false
+  parseReqBody: false,
 });
 
 module.exports = proxyMiddlware;

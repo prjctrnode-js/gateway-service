@@ -16,11 +16,10 @@ module.exports = (sequelize, DataTypes) => {
       port: DataTypes.INTEGER,
       host: DataTypes.STRING,
       path: DataTypes.STRING,
-      token: DataTypes.STRING,
     },
     {
       sequelize,
-      modelName: 'Services'
+      modelName: 'Services',
     }
   );
   return Services;

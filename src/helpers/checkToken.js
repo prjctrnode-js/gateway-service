@@ -7,7 +7,6 @@ const checkToken = async (token) => {
       token,
     },
   });
-  if (!tokenBd) return false;
-  return true;
+  return !!tokenBd;
 };
 module.exports = checkToken;
